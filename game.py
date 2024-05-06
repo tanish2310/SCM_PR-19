@@ -1,5 +1,3 @@
-# Game over scenario and pausing a game
-
 import pygame
 from pygame.locals import *
 import time
@@ -80,10 +78,15 @@ class Game:
         pygame.init()
         pygame.display.set_caption("Codebasics Snake And Apple Game")
         self.surface = pygame.display.set_mode((1000, 800))
+
         self.snake = Snake(self.surface)
+
+        self.snake = Snake(self.surface, 2)
+
         self.snake.draw()
         self.apple = Apple(self.surface)
         self.apple.draw()
+
 
     def reset(self):
         self.snake = Snake(self.surface)
@@ -96,11 +99,20 @@ class Game:
                 return True
         return False
 
+
+
+    def display_score(self):
+        font = pygame.font.SysFont('arial',30)
+        score = font.render(f"Score: {self.snake.length}",True,(200,200,200))
+        self.surface.blit(score,(850,10))
+
+
     def play(self):
         self.snake.walk()
         self.apple.draw()
         self.display_score()
         pygame.display.flip()
+
 
         # snake eating apple scenario
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y):
@@ -127,6 +139,10 @@ class Game:
 
         pygame.display.flip()
 
+        if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y):
+            self.snake.increase_length()
+            self.apple.move()
+
     def run(self):
         running = True
         pause = False
@@ -136,6 +152,12 @@ class Game:
                 if event.type == KEYDOWN:
                     if event.key == K_ESCAPE:
                         running = False
+
+
+
+                    if event.key == K_LEFT:
+                        self.snake.move_left()
+
 
                     if event.key == K_RETURN:
                         pause = False
@@ -157,6 +179,7 @@ class Game:
                     running = False
             try:
 
+
                 if not pause:
                     self.play()
 
@@ -164,6 +187,9 @@ class Game:
                 self.show_game_over()
                 pause = True
                 self.reset()
+
+            self.play()
+
 
             time.sleep(.25)
 
