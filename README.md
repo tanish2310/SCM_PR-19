@@ -1,4 +1,4 @@
-# 🍏🐍 Snake and Apple Game 🐍🍏
+# 🍏🐍 Snake Xenzia 🐍🍏
 
 ## 🎮 Project Information
 ### Primary Owner:
