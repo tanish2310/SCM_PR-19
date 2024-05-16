@@ -4,7 +4,7 @@
 ### Primary Owner:
 - **Name:** Tanish Wadhwa
 ### Secondary Owner:
-- **Name:** Teena
+- **Name:** Teena Rai
 
 ## 🚀 Team Members
 1. **Tanish Wadhwa**
