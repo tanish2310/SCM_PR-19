@@ -11,10 +11,10 @@
    - **Roll No:** 2310992149
    - **GitHub:** ([GitHub Profile](https://github.com/tanish2310))
 2. **Teena Rai**
-   - **Roll No:** 2310992149
+   - **Roll No:** 2310992150
    - **GitHub:** ([GitHub Profile](https://github.com/teena2150))
 3. **Mehak Singla**
-   - **Roll No:** 2310992149
+   - **Roll No:** 2310992151
    - **GitHub:** ([GitHub Profile](https://github.com/Mehak1108singla))
 
 ## 📅 Project Timeline
