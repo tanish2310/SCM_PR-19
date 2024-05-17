@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake and Apple Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #6e6e05;
+        }
+        canvas {
+            border: 2px solid #000;
+            background-image: url('resources/background.jpg');
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="1000" height="800"></canvas>
+
+    <script>
+        const SIZE = 40;
+        const KEY_LEFT = 37;
+        const KEY_UP = 38;
+        const KEY_RIGHT = 39;
+        const KEY_DOWN = 40;
+        const SNAKE_COLOR = '#000';
+        const APPLE_COLOR = '#ff0000';
+
+        let canvas = document.getElementById("gameCanvas");
+        let ctx = canvas.getContext("2d");
+
+        let snake = [{x: 40, y: 40}];
+        let apple = {x: 120, y: 120};
+
+        function drawSnake() {
+            snake.forEach(segment => {
+                ctx.fillStyle = SNAKE_COLOR;
+                ctx.fillRect(segment.x, segment.y, SIZE, SIZE);
+            });
+        }
+
+        function drawApple() {
+            ctx.fillStyle = APPLE_COLOR;
+            ctx.fillRect(apple.x, apple.y, SIZE, SIZE);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawSnake();
+            drawApple();
+        }
+
+        function moveSnake(direction) {
+            // Logic to move the snake
+        }
+
+        function update() {
+            // Logic to update game state
+        }
+
+        function mainLoop() {
+            update();
+            draw();
+            requestAnimationFrame(mainLoop);
+        }
+
+        document.addEventListener("keydown", function(event) {
+            const direction = event.keyCode;
+            moveSnake(direction);
+        });
+
+        mainLoop();
+    </script>
+</body>
+</html>
